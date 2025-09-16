@@ -1,1066 +1,270 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MHP-LIVE - 2 Grid Full Channels</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>MovieHubPlay : The Best Free Site for Movie Lovers</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+  <!-- Open Graph meta tags for social media -->
+  <meta property="og:title" content="MovieHubPlay : The Best Free Site for Movie Lovers" />
+  <meta property="og:description" content="Your destination for the latest Bollywood, South, and Hollywood movies" />
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN03f0vTeKFBOaY5Lq98JdJiLMTIRG0rc0SV-oshm5pAi6KwpDe0QQaHYU1CcXVARWYfW-EtKYefK6CJj-a0_d7ZgnFprdxI4FPmXpD4fqqiB7VY4MX6t8ZqtOn85Prb5ErZmm7-PiMG4LOMgPYScuMrS2-pYeISNneq2ECDK-tUKorKYcHnbzaAHpzQE/s320/1000044975.png" />
+  <meta property="og:url" content="https://www.moviehubplay.fun" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MovieHubPlay : The Best Free Site for Movie Lovers" />
+  <meta name="twitter:description" content="Your destination for the latest Bollywood, South, and Hollywood movies" />
+  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN03f0vTeKFBOaY5Lq98JdJiLMTIRG0rc0SV-oshm5pAi6KwpDe0QQaHYU1CcXVARWYfW-EtKYefK6CJj-a0_d7ZgnFprdxI4FPmXpD4fqqiB7VY4MX6t8ZqtOn85Prb5ErZmm7-PiMG4LOMgPYScuMrS2-pYeISNneq2ECDK-tUKorKYcHnbzaAHpzQE/s320/1000044975.png" />
+
   <style>
-    /* Hide default Blogger Navbar or any navbars by common classes or ids */
-    /* Adjust according to your actual Blogger theme, below are common examples */
-    #navbar, .navbar, .blogger-navbar, .header, .top-navbar, .nav-bar {
+    /* Hide Blogger nav/search/status/header on classic themes */
+    #navbar-iframe, #navbar, .navbar, .NavBar, #navbar1, .Header, .header, .blogger-logo,
+    .widget.Header, .header-bar, .header-section, .main-header, .top-bar, .topbar,
+    .header-outer, .admin-bar, .blog-admin-bar, #Header1, .search-bar, .search-form,
+    .bloggeradmin, .action-bar, .menu-bar, #PageList1, .post-nav, .mobile-header {
       display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      max-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: 0 !important;
+      position: absolute !important;
+      top: -999px !important;
+      left: -999px !important;
+      z-index: -1 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
     }
-
-    :root {
-      --bg-dark: #08090e;
-      --panel-dark: #181c22;
-      --card-dark: #1c2028;
-      --text-primary-dark: #e0e7f1;
-      --muted-dark: #b0b6bc;
-      --pill-dark: #254133;
-
-      --bg-light: #f5f7fa;
-      --panel-light: #e2e5ea;
-      --card-light: #ffffff;
-      --text-primary-light: #2b2b2b;
-      --muted-light: #7a7a7a;
-      --pill-light: #cbdbd6;
-
-      --bg: var(--bg-dark);
-      --panel: var(--panel-dark);
-      --card: var(--card-dark);
-      --text-primary: var(--text-primary-dark);
-      --muted: var(--muted-dark);
-      --pill: var(--pill-dark);
-
-      --accent: #11d87f;
-      --live: #ff6262;
-      --glass: rgba(255, 255, 255, 0.05);
+    html, body {
+      margin: 0; 
+      padding: 0;
+      background: #191919;
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      width: 100vw;
+      min-height: 100vh;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    * {
+    * { box-sizing: border-box; }
+    .moviehub-wrap {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100vw;
+      padding: 0;
+    }
+    .moviehub-header {
+      text-align: center;
+      padding: 35px 4vw 16px 4vw;
+      background: #232323;
+      border-radius: 0 0 22px 22px;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+    .moviehub-header h1 {
+      font-size: 1.45rem;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      word-break: break-word;
+      line-height: 1.32;
+    }
+    .moviehub-header p {
+      font-size: 1.03rem;
+      color: #ffe375;
+      margin-bottom: 20px;
+      word-break: break-word;
+    }
+    .moviehub-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      align-items: center;
+      margin-bottom: 13px;
+      width: 100%;
+    }
+    .moviehub-btn {
+      width: 94%;
+      max-width: 360px;
+      font-weight: 600;
+      font-size: 1.01rem;
+      border-radius: 28px;
+      padding: 13px 0;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: .18s;
+      text-align: center;
+      word-break: break-word;
+      margin: 0 auto;
+    }
+    .mh-main { background: #ffe375; color: #232323;}
+    .mh-mf { background: linear-gradient(90deg,#e52d27,#b31217); color: #fff; font-style: italic;}
+    .mh-rf { background: linear-gradient(90deg,#2980f2,#0c68e8); color: #fff; font-style: italic;}
+    .mh-alt1 { background: linear-gradient(90deg, #28a745, #85d47e); color: #fff; font-style: italic;}
+    .mh-alt2 { background: linear-gradient(90deg, #fdc830, #f37335); color: #232323; font-style: italic;}
+    .moviehub-btn:hover { opacity: .90; }
+    .moviehub-note {
+      text-align: center;
+      margin: 11px 0 15px 0;
+      font-size: .97rem;
+      word-break: break-word;
+      width: 98%;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .moviehub-note a {
+      color: #bda4fc;
+      text-decoration: underline;
+    }
+    .moviehub-share {
+      background: #232323;
+      border-radius: 16px;
+      margin: 0 auto 21px auto;
+      padding: 12px 0 10px 0;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 382px;
+    }
+    .moviehub-share span {
+      font-weight: 700;
+      font-size: .98rem;
+      word-break: break-word;
+    }
+    .share-icons {
+      padding: 8px 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+    .share-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      transition: background 0.15s;
+      background: #181818;
+      font-size: 1.36em;
+      text-decoration: none;
+    }
+    .share-icons a:hover { background: #fff1; }
+    .share-icons .fb { color: #1877f3; }
+    .share-icons .twitter { color: #1da1f2; }
+    .share-icons .telegram { color: #279eff; }
+    .share-icons .whatsapp { color: #25d366; }
+    .moviehub-overview {
+      background: #191919;
+      padding: 1.8em 3vw 2em 3vw;
+      border-radius: 18px;
+      margin: 0 auto 14px auto;
+      text-align: center;
+      box-shadow: 0 1.5px 7px #18181830;
+      word-break: break-word;
+      width: 100%;
+      max-width: 420px;
+    }
+    .moviehub-overview h2 {
+      font-size: 1.13rem;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+    .moviehub-overview p {
+      color: #ecc850;
+      font-weight: 600;
+      font-size: .99rem;
+      margin-bottom: 5px;
+      word-break: break-word;
+    }
+    .moviehub-overview small {
+      display: block;
+      color: #bbb;
+      font-size: .97em;
+      margin-top: 5px;
+      font-weight: 400;
+      word-break: break-word;
+    }
+    .moviehub-footer {
+      text-align: center;
+      color: #bdbdbd;
+      font-size: .94rem;
+      padding: 15px 0 12px;
+      background: #181818;
+      border-radius: 14px 14px 0 0;
+      letter-spacing: .02em;
+      width: 100%;
+      max-width: 420px;
+      margin: 32px auto 0 auto;
       box-sizing: border-box;
     }
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, Segoe UI, Roboto, Helvetica Neue, Arial;
-      background: var(--bg);
-      color: var(--text-primary);
-      min-height: 100vh;
-      transition: background 0.3s, color 0.3s;
-      overflow-x: hidden; /* prevent horizontal scroll when sidebar open */
-    }
-    .wrap {
-      max-width: 680px;
-      margin: 18px auto;
-      padding: 18px;
-    }
-    .top {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 101;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      color: var(--accent);
-      user-select: none;
-    }
-    .brand .logo-box {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #00efb2, #0055ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #012117;
-      font-weight: 800;
-      font-size: 22px;
-    }
-    .search {
-      width: 240px;
-      max-width: 90vw;
-      min-width: 140px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--panel);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255 255 255 / 0.08);
-      margin-right: 8px;
-    }
-    .search svg {
-      opacity: 0.8;
-      stroke: var(--muted);
-    }
-    .search input {
-      flex: 1;
-      min-width: 0;
-      font-size: 14px;
-      background: transparent;
-      border: 0;
-      color: var(--text-primary);
-      outline: none;
-    }
-    .top .icons {
-      display: flex;
-      gap: 8px;
-      margin-left: auto;
-      align-items: center;
-    }
-    /* Theme toggle switch */
-    .toggle {
-      width: 40px;
-      height: 20px;
-      background: var(--card);
-      border-radius: 12px;
-      position: relative;
-      cursor: pointer;
-      border: 1px solid rgba(255 255 255 / 0.06);
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-      transition: background 0.3s;
-    }
-    .toggle::before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 50%;
-      transition: transform 0.3s, background 0.3s;
-      box-shadow: 0 0 8px var(--accent);
-    }
-    .toggle.active {
-      background: #2c3e50;
-    }
-    .toggle.active::before {
-      transform: translateX(20px);
-      background: #f1c40f;
-      box-shadow: 0 0 10px #f1c40f;
-    }
-    /* Hamburger menu */
-    .hamburger {
-      width: 32px;
-      height: 22px;
-      position: relative;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      user-select: none;
-    }
-    .hamburger span {
-      display: block;
-      height: 4px;
-      border-radius: 2px;
-      background: var(--muted);
-      transition: background 0.3s;
-    }
-    .hamburger:hover span {
-      background: var(--accent);
-    }
-    /* Sidebar styles */
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: -300px;
-      width: 280px;
-      height: 100%;
-      background: var(--panel);
-      color: var(--text-primary);
-      box-shadow: 3px 0 12px rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      overflow-y: auto;
-      transition: left 0.3s ease;
-      z-index: 200;
-      font-size: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    #sidebar.active {
-      left: 0;
-    }
-    #sidebar h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-weight: 700;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 5px;
-      user-select: none;
-    }
-    #sidebar .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      font-size: 24px;
-      cursor: pointer;
-      user-select: none;
-      color: var(--muted);
-      transition: color 0.3s;
-    }
-    #sidebar .close-btn:hover {
-      color: var(--accent);
-    }
-    #sidebar ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-    #sidebar ul li {
-      margin: 6px 0;
-    }
-    #sidebar ul li a {
-      color: var(--text-primary);
-      text-decoration: none;
-      display: block;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: background 0.2s;
-      user-select: text;
-    }
-    #sidebar ul li a:hover {
-      background: var(--accent);
-      color: #00140a;
-    }
-
-    /* Sidebar bottom area for pages and social icons */
-    #sidebar-bottom {
-      border-top: 1px solid var(--accent);
-      padding-top: 12px;
-      user-select: none;
-    }
-    #sidebar-pages {
-      margin-bottom: 14px;
-    }
-    #sidebar-pages a {
-      margin-right: 15px;
-      color: var(--muted);
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    #sidebar-pages a:hover {
-      color: var(--accent);
-    }
-    #sidebar-socials a {
-      margin-right: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 20px;
-      display: inline-block;
-      transition: color 0.3s;
-    }
-    #sidebar-socials a:hover {
-      color: var(--accent);
-    }
-
-    /* Icons for social media (using inline SVG for simplicity) */
-    /* Can be replaced with fontawesome or images if preferred */
-    .icon-facebook::before {
-      content: "\f09a"; /* FontAwesome Facebook Unicode if font loaded */
-    }
-    /* Minimal icons with svg inline */
-    svg.social-icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      fill: currentColor;
-    }
-
-    .cats {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      overflow: auto;
-      padding: 12px 2px;
-      margin-bottom: 12px;
-    }
-    .cat {
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(255 255 255 / 0.025), rgba(255 255 255 / 0.01));
-      border: 1px solid rgba(255 255 255 / 0.04);
-      color: var(--muted);
-      font-weight: 600;
-      white-space: nowrap;
-      cursor: pointer;
-      font-size: 13px;
-      transition: background 0.15s, color 0.15s;
-      user-select: none;
-    }
-    .cat.active {
-      background: var(--accent);
-      color: #00140a;
-      box-shadow: 0 8px 22px rgba(17 216 127 / 0.3);
-      border-color: var(--accent);
-    }
-    .head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 8px 0 16px;
-    }
-    .head h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-      user-select: none;
-    }
-    .head .count {
-      color: var(--muted);
-      font-size: 14px;
-      user-select: none;
-    }
-    #ch-total {
-      font-size: 13px;
-      color: var(--muted);
-      background: var(--panel);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255 255 255 / 0.04);
-      user-select: none;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 16px;
-    }
-    .card-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-    .card {
-      background: linear-gradient(180deg, rgba(255 255 255 / 0.04), rgba(255 255 255 / 0.01));
-      border-radius: 12px;
-      padding: 12px;
-      position: relative;
-      overflow: visible;
-      border: 1px solid rgba(255 255 255 / 0.05);
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
-      min-height: 264px;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(2 6 23 / 0.8);
-    }
-    .thumb {
-      height: 110px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #0d1115, #181c22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-    .thumb img {
-      max-width: 70%;
-      max-height: 80px;
-      filter: brightness(1.1);
-      opacity: 1;
-      transition: filter 0.25s;
-    }
-    .thumb .badges {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      display: flex;
-      gap: 8px;
-      z-index: 3;
-    }
-    .badge-live {
-      background: var(--live);
-      color: #fff;
-      padding: 6px 8px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      opacity: 0.75;
-      box-shadow: 0 0 6px var(--live);
-      transition: opacity 0.2s;
-      user-select: none;
-    }
-    .badge-hd {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      background: rgba(15, 60, 30, 0.85);
-      color: #bff0d9;
-      padding: 6px 8px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 12px;
-      border: 1px solid rgba(255 255 255 / 0.03);
-      user-select: none;
-    }
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .meta .left {
-      flex: 1;
-    }
-    .title {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1.1;
-      margin-bottom: 3px;
-      color: var(--text-primary);
-      user-select: text;
-    }
-    .genre,
-    .lang {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 2px;
-      font-weight: 500;
-      user-select: text;
-    }
-    .pill {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--pill);
-      color: var(--muted);
-      border: 1px solid rgba(255 255 255 / 0.02);
-      user-select: text;
-    }
-    .rating-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    .rating {
-      color: #f6d969;
-      font-weight: 700;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      user-select: none;
-    }
-    .fav {
-      background: transparent;
-      border: 1px solid rgba(255 255 255 / 0.05);
-      padding: 6px;
-      border-radius: 8px;
-      color: var(--muted);
-      cursor: pointer;
-      user-select: none;
-      transition: border-color 0.3s, color 0.3s;
-    }
-    .fav:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .link-btn {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      color: #fff;
-      background: var(--accent);
+    .moviehub-footer a {
+      color: #73b8ff;
       text-decoration: none;
       font-weight: 600;
-      border: none;
-      box-shadow: 0 8px 22px rgba(17 216 127 / 0.12);
-      transition: background 0.15s;
-      user-select: none;
     }
-    .link-btn:hover {
-      background: #20e184;
-      color: #041d11;
+    @media (min-width: 601px) {
+      .moviehub-wrap {align-items:center;}
+      .moviehub-header, .moviehub-share, .moviehub-overview, .moviehub-footer {margin-left:auto; margin-right:auto;}
     }
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-      .wrap {
-        padding: 7px;
-      }
-    }
-    @media (max-width: 430px) {
-      .grid {
-        grid-template-columns: repeat(1, 1fr) !important;
-      }
-      .wrap {
-        padding: 3px;
-      }
-    }
-    footer {
-      margin-top: 30px;
-      padding: 15px 0;
-      text-align: center;
-      font-size: 14px;
-      color: var(--muted);
-      user-select: none;
-      border-top: 1px solid rgba(255 255 255 / 0.05);
-      font-style: italic;
-      background: var(--bg);
+    @media (max-width: 420px) {
+      .moviehub-header, .moviehub-share, .moviehub-overview, .moviehub-footer {max-width: 99vw;}
+      .moviehub-header h1 { font-size: 1.07rem; }
+      .moviehub-header p { font-size: .91rem;}
     }
   </style>
 </head>
 <body>
-  
- <style>
-#navbar-iframe { display: none !important; }
-</style>
- 
-  <div id="sidebar" aria-label="Channel sidebar" role="complementary">
-    <div class="close-btn" tabindex="0" role="button" aria-label="Close sidebar">&times;</div>
-    <h3>Channels by Category</h3>
-    <div id="sidebar-content"></div>
-
-    <div id="sidebar-bottom">
-      <div id="sidebar-pages" aria-label="Page links">
-        <a href="/" title="Home">Home</a>
-        <a href="/about" title="About">About</a>
-        <a href="/contact" title="Contact">Contact</a>
-      </div>
-
-      <div id="sidebar-socials" aria-label="Social media links">
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" class="social-facebook">
-          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M22.675 0h-21.35C.594 0 0 .593 0 1.326v21.348C0 23.408.594 24 1.326 24h11.495v-9.294H9.692V11.01h3.129V8.413c0-3.1 1.894-4.788 4.66-4.788 1.325 0 2.464.099 2.797.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.59l-.467 3.696h-3.123V24h6.116c.73 0 1.324-.592 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/>
-          </svg>
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter" class="social-twitter">
-          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M24 4.557a9.94 9.94 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.865 9.865 0 01-3.127 1.196 4.92 4.92 0 00-8.384 4.482A13.951 13.951 0 011.671 3.149a4.922 4.922 0 001.523 6.573 4.897 4.897 0 01-2.228-.616v.061a4.922 4.922 0 003.946 4.827 4.9 4.9 0 01-2.224.084 4.923 4.923 0 004.596 3.417A9.865 9.865 0 010 21.543a13.9 13.9 0 007.548 2.209c9.055 0 14.009-7.506 14.009-14.008 0-.213-.005-.425-.014-.636A10.012 10.012 0 0024 4.557z"/>
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="social-instagram">
-          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.976.976 1.248 2.243 1.31 3.608.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.976.976-2.243 1.248-3.608 1.31-1.265.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.976-.976-1.248-2.243-1.31-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.976-.976 2.243-1.248 3.608-1.31C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.772.131 4.63.433 3.68 1.383c-.95.95-1.252 2.092-1.31 3.372C2.013 6.682 2 7.092 2 10.35v3.3c0 3.259.013 3.668.072 4.948.058 1.28.36 2.422 1.31 3.372.95.95 2.092 1.252 3.372 1.31C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.28-.058 2.422-.36 3.372-1.31.95-.95 1.252-2.092 1.31-3.372.059-1.28.072-1.689.072-4.948v-3.3c0-3.259-.013-3.668-.072-4.948-.058-1.28-.36-2.422-1.31-3.372-.95-.95-2.092-1.252-3.372-1.31C15.668.013 15.259 0 12 0z"/>
-            <path d="M12 5.838a6.162 6.162 0 106.162 6.162A6.154 6.154 0 0012 5.838zm0 10.18a4.018 4.018 0 114.018-4.018A4.013 4.013 0 0112 16.018z"/>
-            <circle cx="18.406" cy="5.594" r="1.44"/>
-          </svg>
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" class="social-linkedin">
-          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20.447 20.452H17.2v-5.569c0-1.327-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.067V9h3.083v1.561h.043c.429-.813 1.48-1.671 3.047-1.671 3.257 0 3.857 2.146 3.857 4.933v6.629zM5.337 7.433A1.83 1.83 0 013.51 5.585 1.83 1.83 0 015.334 3.75a1.83 1.83 0 011.83 1.835c0 1.013-.82 1.83-1.827 1.83zM6.877 20.452H3.797V9h3.08zM22.225 0H1.771C.792 0 0 .77 0 1.728v20.543C0 23.228.792 24 1.771 24h20.451c.979 0 1.773-.772 1.773-1.729V1.729C23.998.77 23.204 0 22.225 0z"/>
-          </svg>
-        </a>
-      </div>
+<div class="moviehub-wrap">
+  <div class="moviehub-header">
+    <h1>MovieHubPlay : The Best Free Site for Movie Lovers</h1>
+    <p>Your destination for the latest Bollywood, South, and Hollywood movies</p>
+    <div class="moviehub-btn-group">
+      <a class="moviehub-btn mh-main" href="https://lux124cmx.blogspot.com/?m=1">moviehubplay View Full Site ▶</a>
+      <a class="moviehub-btn mh-mf" href="https://mf.mhpu.fun/"><em>M-FLIX</em> View Full Site ▶</a>
+      <a class="moviehub-btn mh-rf" href="https://mhp-news.blogspot.com/"><em>R-FLIX</em> Full Site for Download ▶</a>
+      <a class="moviehub-btn mh-alt1" href="https://mhp-news.blogspot.com/">LIVE TV open  ▶</a>
+      <a class="moviehub-btn mh-alt2" href="https://alt2.mhpu.fun/">adult videos soon...▶</a>
     </div>
   </div>
-
-  <div class="wrap" id="main-wrap">
-    <div class="top">
-      <div class="brand" aria-label="Brand logo and name">
-        <div class="logo-box" aria-hidden="true">M</div> MHP.LIVE 
-      </div>
-      <div class="search" role="search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M21 21l-4.35-4.35" stroke="#9aa0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          <circle cx="11" cy="11" r="6" stroke="#9aa0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <input id="search" placeholder="Search channels..." autocomplete="off" aria-label="Search channels" />
-        <div style="background:var(--panel);padding:6px 10px;border-radius:99px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-weight:100;font-size:13px" aria-hidden="true">All</div>
-      </div>
-      <div class="icons">
-        <div id="toggle-theme" class="toggle" title="Toggle Light/Dark Mode" role="button" aria-label="Toggle Light/Dark Mode" tabindex="0"></div>
-        <div class="hamburger" title="Menu" role="button" aria-label="Open sidebar menu" tabindex="0">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-    <div id="categories" class="cats" aria-label="Channel categories"></div>
-    <div class="head">
-      <div>
-        <h2>All Channels</h2>
-        <div id="count" class="count">0 channels available</div>
-      </div>
-      <div id="ch-total"></div>
-    </div>
-    <div id="grid" class="grid" aria-live="polite"></div>
+  <div class="moviehub-note">
+    If new tab is not opening then <a href="https://t.me/moviehubplayrequest">Click Here</a>
   </div>
-
-  <footer>© 2025 MHP.LIVE by moviehubplay - All rights reserved.</footer>
-
-<script>
-  const channels = [
-    {id:9, name:'AAJ TAK 24/7', provider:'MHP-live', rating:4.3, cat:'MHP-live', logo:'https://jiotv.catchup.cdn.jio.com/dare_images/images/Aaj_Tak.png', genre:'News', language:'Hindi', url:'https://feeds.intoday.in/livetv/ver-3-0/?id=livetv-at&aud_togle=1&autostart=1&mute=1&t_src=live_tv_page&t_med=web&utm_medium=web&utm_source=live_tv_page&ver=3.0&noads=0'},
-    {id:10, name:'india today', provider:'MHP-live', rating:4.4, cat:'MHP-live', logo:'https://upload.wikimedia.org/wikipedia/commons/a/ab/India_Today_logo.png', genre:'News', language:'Hindi', url:'https://feeds.intoday.in/livetv/ver-3-0/?id=livetv-gnt&aud_togle=1&autostart=1&mute=1&t_src=home_page&t_med=web&utm_medium=web&utm_source=home_page&v=1.3'},
-    {id:11, name:'Star Gold 2', provider:'MHP-live', rating:4.5, cat:'MHP-live', logo:'https://cdn.brandfetch.io/id6zWIYSmg/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1687574249300', genre:'News', language:'Hindi', url:'https://cdn.abplive.com/LiveStreams/abp_live_tv/hindi/live-tv.html'},
-   
- 
-    // SONY GROUP CHANNELS
-    {
-      id:"sony-ten-1",
-      name:"Sony Sports Ten 1",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-1-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011739/TEN1SD/master_900.m3u8",
-      hd:false,
-      rating:4.3,
-    },
-    {
-      id:"sony-ten-2",
-      name:"Sony Sports Ten 2",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-2-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020590/TEN2SD/master_900.m3u8",
-      hd:false,
-      rating:4.2,
-    },
-    {
-      id:"sony-ten-3",
-      name:"Sony Sports Ten 3",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"Hindi",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-3-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020592/TEN3SD/master_900.m3u8",
-      hd:false,
-      rating:4.4,
-    },
-    {
-      id:"sony-ten-4",
-      name:"Sony Sports Ten 4",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"Hindi",
-      logo:"https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_HD_Logo_CLR.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020437/ten4sd/master_900.m3u8",
-      hd:false,
-      rating:4.1,
-    },
-    {
-      id:"sony-ten-5",
-      name:"Sony Sports Ten 5",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020594/SONYSIXSD/master_900.m3u8",
-      hd:false,
-      rating:4.3,
-    },
-    {
-      id:"sony-ten-1-hd",
-      name:"Sony Sports Ten 1 HD",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-1-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011747/TEN1HD/master_900.m3u8",
-      hd:true,
-      rating:4.4,
-    },
-    {
-      id:"sony-ten-2-hd",
-      name:"Sony Sports Ten 2 HD",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-2-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020434/TEN2HD/master_900.m3u8",
-      hd:true,
-      rating:4.5,
-    },
-    {
-      id:"sony-ten-3-hd",
-      name:"Sony Sports Ten 3 HD",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"Hindi",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SPORTS-TEN-3-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_900.m3u8",
-      hd:true,
-      rating:4.6,
-    },
-    {
-      id:"sony-ten-4-hd",
-      name:"Sony Sports Ten 4 HD",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"Hindi",
-      logo:"https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_HD_Logo_CLR.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020589/ten4hd/master_900.m3u8",
-      hd:true,
-      rating:4.3,
-    },
-    {
-      id:"sony-ten-5-hd",
-      name:"Sony Sports Ten 5 HD",
-      provider:"SONY Group",
-      genre:"Sports",
-      language:"English",
-      logo:"https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2020593/SONYSIXHD/master_900.m3u8",
-      hd:true,
-      rating:4.6,
-    },
-    {
-      id:"sony-hd",
-      name:"SET HD",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Hindi",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-ENTERTAINMENT-TELEVISION-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011671/SETHD/master_900.m3u8",
-      hd:true,
-      rating:4.7,
-    },
-    {
-      id:"sony-sab-hd",
-      name:"Sony SAB HD",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Hindi",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-SAB-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011749/SABHD/master_900.m3u8",
-      hd:true,
-      rating:4.3,
-    },
-    {
-      id:"sony-marathi",
-      name:"Sony Marathi",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Marathi",
-      logo:"https://i.ibb.co/QvzMhYwR/Sony-MARATHI.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011740/SonyMarathi/master_900.m3u8",
-      hd:false,
-      rating:4.2,
-    },
-    {
-      id:"sony-pal",
-      name:"Sony Pal",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Hindi",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12071-j9oa4gbc-v5/imageContent-12071-j9oa4gbc-m4.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011741/SonyPalSD/master_900.m3u8",
-      hd:false,
-      rating:4.1,
-    },
-    {
-      id:"sony-kal",
-      name:"Sony Kal",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Hindi",
-      logo:"https://i.ibb.co/JFrTDg2k/275853749-1027757541419082-8885487251764233689-n.jpg",
-      url:"https://spt-sonykal-1-us.lg.wurl.tv/playlist.m3u8",
-      hd:false,
-      rating:4.3,
-    },
-    {
-      id:"sony-aath",
-      name:"Sony Aath",
-      provider:"SONY Group",
-      genre:"Entertainment",
-      language:"Bengali",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-94-j5fjveio-v3/imageContent-94-j5fjveio-m2.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011641/SonyAathSD/master_900.m3u8",
-      hd:false,
-      rating:4.0,
-    },
-    {
-      id:"sony-yay",
-      name:"Sony Yay",
-      provider:"SONY Group",
-      genre:"Kids",
-      language:"Hindi",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-132-j5fpedbs-v4/imageContent-132-j5fpedbs-m6.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011746/SonyYaySD/master_900.m3u8",
-      hd:false,
-      rating:4.2,
-    },
-    {
-      id:"sony-max-hd",
-      name:"Sony MAX HD",
-      provider:"SONY Group",
-      genre:"Movies",
-      language:"Hindi",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-243-j5fyl2f4-v3/imageContent-243-j5fyl2f4-m4.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011670/SonyMaxhd/master_900.m3u8",
-      hd:true,
-      rating:4.7,
-    },
-    {
-      id:"sony-max",
-      name:"Sony MAX",
-      provider:"SONY Group",
-      genre:"Movies",
-      language:"Hindi",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-441-j5jt3mmg-v3/imageContent-441-j5jt3mmg-m3.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011745/SonyMaxSD/master_900.m3u8",
-      hd:false,
-      rating:4.2,
-    },
-    {
-      id:"sony-max-2",
-      name:"Sony MAX 2",
-      provider:"SONY Group",
-      genre:"Movies",
-      language:"Hindi",
-      logo:"https://www.sonypicturesnetworks.com/images/logos/Sony_MAX2.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011908/MAX2/master_900.m3u8",
-      hd:false,
-      rating:4.0,
-    },
-    {
-      id:"sony-wah",
-      name:"Sony WAH",
-      provider:"SONY Group",
-      genre:"Movies",
-      language:"Hindi",
-      logo:"https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-198-j5fsr7mw-v2/imageContent-198-j5fsr7mw-m3.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011906/SonyWah/master_900.m3u8",
-      hd:false,
-      rating:4.1,
-    },
-    {
-      id:"sony-pix-hd",
-      name:"Sony PIX HD",
-      provider:"SONY Group",
-      genre:"Movies",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-PIX-HD-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011748/PIXHD/master_900.m3u8",
-      hd:true,
-      rating:4.4,
-    },
-    {
-      id:"sony-bbc-earth-hd",
-      name:"Sony BBC Earth HD",
-      provider:"SONY Group",
-      genre:"Infotainment",
-      language:"English",
-      logo:"https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SONY-BBC-EARTH-HD1-Transparent.png",
-      url:"https://tataplay.slivcdn.com/hls/live/2011907/SonyBBCEarthHD/master_900.m3u8",
-      hd:true,
-      rating:4.5,
-    }
-  ];
-
-  const categories = ["All", ...Array.from(new Set(channels.map(c => c.cat || c.genre || "")))];
-  let activeCategory = "All";
-
-  const grid = document.getElementById("grid");
-  const catsWrap = document.getElementById("categories");
-  const countEl = document.getElementById("count");
-  const search = document.getElementById("search");
-  const chTotal = document.getElementById("ch-total");
-  const sidebar = document.getElementById("sidebar");
-  const sidebarContent = document.getElementById("sidebar-content");
-  const hamburger = document.querySelector(".hamburger");
-  const closeBtn = document.querySelector("#sidebar .close-btn");
-  const toggleThemeBtn = document.getElementById("toggle-theme");
-
-  // Render categories filter buttons
-  function renderCategories() {
-    catsWrap.innerHTML = "";
-    categories.forEach(cat => {
-      const d = document.createElement("div");
-      d.className = "cat" + (cat === activeCategory ? " active" : "");
-      d.textContent = cat + (cat === "All" ? "  (" + channels.length + ")" : "");
-      d.onclick = () => {
-        activeCategory = cat;
-        renderCategories();
-        renderGrid();
-      };
-      catsWrap.appendChild(d);
-    });
-  }
-  chTotal.textContent = channels.length + " Channels";
-
-  // Render channels grid based on filtered categories and search
-  function renderGrid() {
-    const q = search.value.trim().toLowerCase();
-    let filtered = channels.filter(ch => {
-      let catv = ch.cat || ch.genre;
-      if (activeCategory !== "All" && catv !== activeCategory) return false;
-      if (
-        q &&
-        !(
-          (ch.name && ch.name.toLowerCase().includes(q)) ||
-          (ch.provider && ch.provider.toLowerCase().includes(q)) ||
-          (ch.genre && ch.genre.toLowerCase().includes(q)) ||
-          (ch.language && ch.language.toLowerCase().includes(q))
-        )
-      )
-        return false;
-      return true;
-    });
-    countEl.textContent = filtered.length + " channels available";
-    grid.innerHTML = "";
-    filtered.forEach(ch => {
-      const a = document.createElement("a");
-      a.href = ch.url || "#";
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = "card-link";
-      const card = document.createElement("div");
-      card.className = "card";
-      const thumb = document.createElement("div");
-      thumb.className = "thumb";
-      const badges = document.createElement("div");
-      badges.className = "badges";
-      if (ch.live || ch.genre === "Sports") {
-        const b1 = document.createElement("div");
-        b1.className = "badge-live";
-        b1.textContent = "LIVE";
-        badges.appendChild(b1);
-      }
-      thumb.appendChild(badges);
-      const img = document.createElement("img");
-      img.src = ch.logo;
-      img.alt = ch.name + " logo";
-      thumb.appendChild(img);
-      if (ch.hd) {
-        const hd = document.createElement("div");
-        hd.className = "badge-hd";
-        hd.textContent = "HD";
-        thumb.appendChild(hd);
-      }
-      const meta = document.createElement("div");
-      meta.className = "meta";
-      meta.innerHTML = `
-        <div class="left">
-          <div class="title">${ch.name || ch.title}</div>
-          <div class="genre">Genre: ${ch.genre || "-"}</div>
-          <div class="lang">Language: ${ch.language || "-"}</div>
-        </div>
-        <div class="pill">${ch.provider || ch.cat || "-"}</div>
-      `;
-      const ratingRow = document.createElement("div");
-      ratingRow.className = "rating-row";
-      ratingRow.innerHTML = `<div class="rating">★ ${ch.rating ? ch.rating.toFixed(1) : "--"}</div><div class="fav">♡</div>`;
-      card.appendChild(thumb);
-      card.appendChild(meta);
-      card.appendChild(ratingRow);
-      a.appendChild(card);
-      grid.appendChild(a);
-    });
-  }
-
-  search.addEventListener("input", renderGrid);
-
-  // Sidebar render function: group channels by category and list all inside sidebar with links
-  function renderSidebar() {
-    const grouped = {};
-    channels.forEach(ch => {
-      const cat = ch.cat || ch.genre || "Uncategorized";
-      if (!grouped[cat]) grouped[cat] = [];
-      grouped[cat].push(ch);
-    });
-
-    sidebarContent.innerHTML = "";
-    Object.keys(grouped).sort().forEach(cat => {
-      const h = document.createElement("h4");
-      h.textContent = cat + " (" + grouped[cat].length + ")";
-      sidebarContent.appendChild(h);
-      const ul = document.createElement("ul");
-      grouped[cat].forEach(ch => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = ch.url || "#";
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.textContent = ch.name || ch.title;
-        li.appendChild(a);
-        ul.appendChild(li);
-      });
-      sidebarContent.appendChild(ul);
-    });
-  }
-
-  // Hamburger and sidebar toggle handlers
-  hamburger.addEventListener("click", () => {
-    sidebar.classList.add("active");
-  });
-  closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
-
-  // Also close sidebar on clicking outside sidebar on small screens
-  document.addEventListener("click", e => {
-    if (
-      sidebar.classList.contains("active") &&
-      !sidebar.contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
-      sidebar.classList.remove("active");
-    }
-  });
-
-  // Keyboard accessibility for hamburger and close button
-  hamburger.addEventListener("keydown", e => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      sidebar.classList.add("active");
-    }
-  });
-  closeBtn.addEventListener("keydown", e => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      sidebar.classList.remove("active");
-    }
-  });
-
-  // Theme toggle logic
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  function applyTheme(theme) {
-    if (theme === "light") {
-      document.documentElement.style.setProperty("--bg", "var(--bg-light)");
-      document.documentElement.style.setProperty("--panel", "var(--panel-light)");
-      document.documentElement.style.setProperty("--card", "var(--card-light)");
-      document.documentElement.style.setProperty("--text-primary", "var(--text-primary-light)");
-      document.documentElement.style.setProperty("--muted", "var(--muted-light)");
-      document.documentElement.style.setProperty("--pill", "var(--pill-light)");
-      toggleThemeBtn.classList.add("active");
-    } else {
-      document.documentElement.style.setProperty("--bg", "var(--bg-dark)");
-      document.documentElement.style.setProperty("--panel", "var(--panel-dark)");
-      document.documentElement.style.setProperty("--card", "var(--card-dark)");
-      document.documentElement.style.setProperty("--text-primary", "var(--text-primary-dark)");
-      document.documentElement.style.setProperty("--muted", "var(--muted-dark)");
-      document.documentElement.style.setProperty("--pill", "var(--pill-dark)");
-      toggleThemeBtn.classList.remove("active");
-    }
-  }
-  applyTheme(savedTheme);
-  toggleThemeBtn.addEventListener("click", () => {
-    const newTheme = toggleThemeBtn.classList.contains("active") ? "dark" : "light";
-    applyTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-
-  // Initial render
-  renderCategories();
-  renderGrid();
-  renderSidebar();
-</script>
+  <div class="moviehub-share">
+    <span>Share MovieHubPlay to your friends</span>
+    <div class="share-icons">
+      <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://www.moviehubplay.fun" target="_blank" title="Facebook" aria-label="Share on Facebook">
+        <svg width="23" height="23" viewBox="0 0 32 32" fill="currentColor"><path d="M29 0H3C1.4 0 0 1.4 0 3v26c0 1.6 1.4 3 3 3h13V20h-4v-5h4v-4c0-4.1 2.5-6.5 6.3-6.5 1.8 0 3.7.3 3.7.3v4h-2.1c-2.1 0-2.7 1.3-2.7 2.6V15h5l-1 5h-4v12h7.8c1.6 0 3-1.4 3-3V3c0-1.6-1.4-3-3-3z"/></svg>
+      </a>
+      <a class="twitter" href="https://twitter.com/share?url=https://www.moviehubplay.fun&text=MovieHubPlay" target="_blank" title="Twitter" aria-label="Share on Twitter">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><path d="M32 6.076a13.139 13.139 0 0 1-3.769 1.031A6.601 6.601 0 0 0 31.112 4.1a13.177 13.177 0 0 1-4.17 1.594A6.563 6.563 0 0 0 22.155 2c-3.627 0-6.563 2.938-6.563 6.563 0 .515.058 1.017.17 1.498C10.314 9.834 5.481 7.442 2.228 3.794A6.473 6.473 0 0 0 1.347 6.05a6.545 6.545 0 0 0 2.922 5.47A6.529 6.529 0 0 1 .8 10v.083a6.57 6.57 0 0 0 5.263 6.437c-.29.079-.595.122-.906.122-.222 0-.438-.022-.648-.063.439 1.369 1.711 2.367 3.215 2.394A13.172 13.172 0 0 1 0 29.026a18.562 18.562 0 0 0 10.063 2.952c12.072 0 18.687-10.003 18.687-18.687 0-.284-.007-.567-.02-.847A13.375 13.375 0 0 0 32 6.076z"/></svg>
+      </a>
+      <a class="telegram" href="https://t.me/share/url?url=https://www.moviehubplay.fun&text=MovieHubPlay" target="_blank" title="Telegram" aria-label="Share on Telegram">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><path d="M32 6.076 4.01 13.133c-1.01.286-1.002 1.01-.152 1.244l4.724 1.471 1.782 5.515c.181.564.546.692 1.14.294l2.636-2.012 5.49 4.052c.738.545 1.272.259 1.45-.636l3.357-16.66c.187-.994-.294-1.438-1.093-1.046zM12.034 20.488l-1.172-3.626L25.112 8.783c.183-.127.35-.045.269.111s-10.71 11.62-10.71 11.62zm-1.391-4.696-3.567-1.113 18.313-5.31z"/></svg>
+      </a>
+      <a class="whatsapp" href="https://api.whatsapp.com/send?text=MovieHubPlay%20https://www.moviehubplay.fun" target="_blank" title="WhatsApp" aria-label="Share on WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor"><path d="M16.003.667c-8.828 0-16 7.166-16 16 0 2.822.73 5.59 2.116 8.01L.013 31.392l6.496-2.084A15.912 15.912 0 0 0 16.003 31c8.834 0 16-7.166 16-16S24.837.667 16.003.667zm8.937 23.488c-.378 1.066-1.858 1.992-3.05 2.261-.813.173-1.895.311-3.135-.197-4.238-1.741-6.975-6.052-7.188-6.334-.209-.282-1.717-2.286-1.717-4.369s1.092-3.107 1.479-3.527c.386-.421.843-.527 1.123-.527.281 0 .562.003.813.015.264.012.625-.1.98.749.356.849 1.211 2.924 1.32 3.138.108.213.18.464.037.746-.137.273-.208.446-.409.694-.2.25-.417.555-.595.747-.19.197-.388.414-.169.832.221.419.981 1.621 2.101 2.62 1.447 1.291 2.666 1.693 3.116 1.885.45.19.688.159.946-.095.255-.255 1.086-1.257 1.377-1.661.293-.405.583-.332.981-.2.397.133 2.517 1.185 2.951 1.4.432.213.72.318.823.507.105.189.105 1.062-.272 2.127z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="moviehub-overview">
+    <h2>Brief overview of MovieHubPlay website</h2>
+    <p>MovieHubPlay is the ultimate destination for movie lovers in the Indian subcontinent, offering a wide range of films in various languages and quality options.</p>
+    <small>Whether you want Bollywood, South, Hollywood, or latest web series – find all in one place!</small>
+  </div>
+  <div class="moviehub-footer">
+    Designed by <a href="https://www.moviehubplay.fun/?m=1" target="_blank">Moviehubplay</a>
+  </div>
+</div>
 </body>
 </html>
